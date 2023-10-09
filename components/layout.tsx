@@ -10,7 +10,7 @@ function Layout({ children }: { children: any }) {
       {/* <PageHead>
         <meta name="description" content="Artstone Marble & Granite" />
       </PageHead> */}
-      <Flex direction={"column"} backgroundColor={"#2e2e2e"}>
+      <Flex direction={"column"} backgroundColor={"#2e2e2e"} w="100%">
         <Header />
         <main>{children}</main>
         <Footer />

@@ -1,20 +1,23 @@
-import { Flex, Text, Link } from "@chakra-ui/react";
+import { Flex, Text, Link, Box } from "@chakra-ui/react";
 
 function Footer() {
   return (
     <Flex
-      direction={"column"}
       justify={"center"}
       alignSelf={"center"}
-      backgroundColor={"red"}
+      backgroundColor={"#212121"}
       w="100%"
+      padding={5}
+      color="white"
     >
-      <Link href="https://apps.apple.com/us/app/cezs/id6450903389">
-        <Text>Available in App Store</Text>
-      </Link>
       <Flex>
-        <Text>Privacy Policy</Text>
-        <Text>Support</Text>
+        <Link href={"/privacy"}>
+          <Text>Privacy Policy</Text>
+        </Link>
+        <Box w={5}></Box>
+        <Link href="/support">
+          <Text>Support</Text>
+        </Link>
       </Flex>
     </Flex>
   );
