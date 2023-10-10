@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Flex, Heading, Text } from "@chakra-ui/react";
 import SkeletonImage from "./SkeletonImage";
+import ReactTextTransition, { presets } from "react-text-transition";
+
 function ScreenShots() {
   const [hovering, setHovering] = useState<string>("");
 
@@ -15,9 +17,18 @@ function ScreenShots() {
       <Heading alignSelf={"center"} fontWeight={400}>
         Music app for instrumentalists
       </Heading>
-      <Heading fontSize={27} textAlign={"center"} fontWeight={400}>
-        {imageDescriptions[hovering]}
-      </Heading>
+      <Flex h={70} w="100%" justify={"center"}>
+        <ReactTextTransition springConfig={presets.gentle} inline>
+          <Heading
+            padding={5}
+            fontSize={27}
+            textAlign={"center"}
+            fontWeight={400}
+          >
+            {imageDescriptions[hovering]}
+          </Heading>
+        </ReactTextTransition>
+      </Flex>
       <Flex
         flexWrap={"wrap"}
         padding={5}
