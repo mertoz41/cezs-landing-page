@@ -1,18 +1,55 @@
-import { Flex } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Flex, Heading, Text } from "@chakra-ui/react";
 import SkeletonImage from "./SkeletonImage";
 function ScreenShots() {
+  const [hovering, setHovering] = useState<string>("");
+
+  const imageDescriptions: any = {
+    "first.png": "this is the description for the first joint",
+    "second.png": "second desc being shown",
+    "third.png": "right now third is shown",
+    "fourth.png": "LAST IS FOURTH",
+  };
   return (
-    <Flex
-      flexWrap={"wrap"}
-      padding={5}
-      w="60%"
-      alignSelf={"center"}
-      justify={"space-between"}
-    >
-      <SkeletonImage name={"first.png"} height={430} width={200} />
-      <SkeletonImage name={"third.png"} height={430} width={200} />
-      <SkeletonImage name={"second.png"} height={430} width={200} />
-      <SkeletonImage name={"fourth.png"} height={430} width={200} />
+    <Flex direction={"column"} color={"white"} fontWeight={400}>
+      <Heading alignSelf={"center"} fontWeight={400}>
+        Music app for instrumentalists
+      </Heading>
+      <Heading fontSize={27} textAlign={"center"} fontWeight={400}>
+        {imageDescriptions[hovering]}
+      </Heading>
+      <Flex
+        flexWrap={"wrap"}
+        padding={5}
+        w="60%"
+        alignSelf={"center"}
+        justify={"space-between"}
+      >
+        <SkeletonImage
+          setHovering={setHovering}
+          name={"first.png"}
+          height={430}
+          width={200}
+        />
+        <SkeletonImage
+          setHovering={setHovering}
+          name={"third.png"}
+          height={430}
+          width={200}
+        />
+        <SkeletonImage
+          setHovering={setHovering}
+          name={"second.png"}
+          height={430}
+          width={200}
+        />
+        <SkeletonImage
+          setHovering={setHovering}
+          name={"fourth.png"}
+          height={430}
+          width={200}
+        />
+      </Flex>
     </Flex>
   );
 }

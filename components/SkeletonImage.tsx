@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Image, Flex } from "@chakra-ui/react";
+import { Image, Flex, Box } from "@chakra-ui/react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
@@ -7,10 +7,12 @@ function SkeletonImage({
   name,
   height,
   width,
+  setHovering,
 }: {
   name: string;
   height: number;
   width: number;
+  setHovering: any;
 }) {
   const [loadedImage, setLoadedImage] = useState<string>("");
 
@@ -21,35 +23,32 @@ function SkeletonImage({
       setLoadedImage(img.src);
     };
   }, [name]);
-  //   const checkModal = () => {
-  //     if (!container) {
-  //       onOpen();
-  //     }
 
   return (
-    <Flex marginTop={5}>
+    <Flex>
       {loadedImage ? (
         <Image
           objectFit={"cover"}
-          cursor={"pointer"}
           src={loadedImage}
           alt="picture"
           _hover={{ boxShadow: "xl" }}
           h={height}
           w={width}
           alignSelf={"center"}
-        //   boxShadow={"2xl"}
           mb={5}
+          onMouseEnter={() => setHovering(name)}
         />
       ) : (
-        <Skeleton
-          baseColor="#f2f2f2"
-          highlightColor="white"
-          style={{
-            height: height,
-            width: width,
-          }}
-        />
+        <Box height={height} width={width}>
+          <Skeleton
+            baseColor="#f2f2f2"
+            highlightColor="white"
+            style={{
+              height: "100%",
+              width: "100%",
+            }}
+          />
+        </Box>
       )}
     </Flex>
   );
