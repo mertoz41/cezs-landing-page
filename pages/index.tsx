@@ -4,14 +4,19 @@ function Home() {
   return (
     <Flex w={"100vw"} direction={"column"}>
       <ScreenShots />
-      <Link href="https://apps.apple.com/us/app/cezs/id6450903389">
+      <Link
+        isExternal
+        textDecoration={"underline"}
+        textDecorationColor={"#9370DB"}
+        href="https://apps.apple.com/us/app/cezs/id6450903389"
+      >
         <Heading
-          marginBottom={5}
-          fontWeight={400}
+          marginY={10}
+          fontWeight={300}
           textAlign={"center"}
           color="white"
         >
-          Available in App Store
+          Available in the App Store
         </Heading>
       </Link>
     </Flex>

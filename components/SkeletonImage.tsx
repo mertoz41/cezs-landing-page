@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Image, Flex, Box } from "@chakra-ui/react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { animated, useSpring } from "@react-spring/web";
 
 function SkeletonImage({
   name,
@@ -15,8 +16,15 @@ function SkeletonImage({
   setHovering: any;
 }) {
   const [loadedImage, setLoadedImage] = useState<string>("");
-
+  const [homeAnimation, animate] = useSpring(() => ({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+  }));
   useEffect(() => {
+    animate.start({
+      from: { opacity: 0 },
+      to: { opacity: 1 },
+    });
     const img = new (window as any).Image();
     img.src = `https://d1icker9je2akj.cloudfront.net/${name}`;
     img.onload = () => {
@@ -27,17 +35,19 @@ function SkeletonImage({
   return (
     <Flex>
       {loadedImage ? (
-        <Image
-          objectFit={"cover"}
-          src={loadedImage}
-          alt="picture"
-          _hover={{ boxShadow: "xl" }}
-          w={width}
-          alignSelf={"center"}
-          mb={5}
-          mt={3}
-          onMouseEnter={() => setHovering(name)}
-        />
+        <animated.div style={homeAnimation}>
+          <Image
+            objectFit={"cover"}
+            src={loadedImage}
+            alt="picture"
+            _hover={{ boxShadow: "xl" }}
+            w={width}
+            alignSelf={"center"}
+            mb={5}
+            mt={3}
+            onMouseEnter={() => setHovering(name)}
+          />
+        </animated.div>
       ) : (
         <Box height={height} width={width}>
           <Skeleton
