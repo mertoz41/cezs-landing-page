@@ -11,7 +11,7 @@ function SkeletonImage({
 }: {
   name: string;
   height: number;
-  width: number;
+  width: number | string;
   setHovering: any;
 }) {
   const [loadedImage, setLoadedImage] = useState<string>("");
@@ -32,10 +32,10 @@ function SkeletonImage({
           src={loadedImage}
           alt="picture"
           _hover={{ boxShadow: "xl" }}
-          h={height}
           w={width}
           alignSelf={"center"}
           mb={5}
+          mt={3}
           onMouseEnter={() => setHovering(name)}
         />
       ) : (

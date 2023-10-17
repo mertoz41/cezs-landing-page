@@ -4,7 +4,7 @@ function Footer() {
   return (
     <Flex
       justify={"center"}
-      alignSelf={"center"}
+      alignSelf={"flex-end"}
       backgroundColor={"#212121"}
       w="100%"
       padding={5}
