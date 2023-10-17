@@ -3,6 +3,9 @@ import ScreenShots from "../components/ScreenShots";
 function Home() {
   return (
     <Flex w={"100vw"} direction={"column"}>
+      <Heading alignSelf={"center"} marginY={10} color="white" fontWeight={300}>
+        Music app for instrumentalists
+      </Heading>
       <ScreenShots />
       <Link
         isExternal

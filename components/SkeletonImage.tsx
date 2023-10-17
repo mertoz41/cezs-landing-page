@@ -49,10 +49,10 @@ function SkeletonImage({
           />
         </animated.div>
       ) : (
-        <Box height={height} width={width}>
+        <Box height={height} width={width} zIndex={0}>
           <Skeleton
-            baseColor="#f2f2f2"
-            highlightColor="white"
+            baseColor="#2e2e2e"
+            highlightColor="#545454"
             style={{
               height: "100%",
               width: "100%",

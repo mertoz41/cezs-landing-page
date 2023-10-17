@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Flex, Heading, Image } from "@chakra-ui/react";
 import SkeletonImage from "./SkeletonImage";
-
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 function ScreenShots() {
   const [hovering, setHovering] = useState<string>("second.png");
   const renderDescription = (fileName: string, description: string) => {
@@ -28,52 +29,41 @@ function ScreenShots() {
       >
         {renderDescription(
           "second.png",
-          "Customize your portfolio and connect with like minded musicians"
+          "Customize your portfolio and connect with like-minded musicians"
         )}
         {renderDescription(
           "third.png",
-          "Discover musicians in your area to collaborate"
+          "Discover musicians around your area to collaborate and start your band"
         )}
         {renderDescription(
           "first.png",
-          "Listen to your favorite songs from our musicians"
+          "Listen to your favorite songs in different instruments from our musicians"
         )}
         {renderDescription(
           "fourth.png",
-          "Pinpoint your events for other musicians to see"
+          "Pinpoint your upcoming gigs and auditions for other musicians to see"
         )}
       </Flex>
     );
   };
   return (
-    <Flex direction={"column"} color={"white"}>
-      <Heading alignSelf={"center"} marginY={10} fontWeight={300}>
-        Music app for instrumentalists
-      </Heading>
-      <Flex
-        flexWrap={"wrap"}
-        padding={5}
-        w="80%"
-        alignSelf={"center"}
-        justify={"center"}
-      >
-        <Flex width={250} justifyContent={"center"}>
-          <Image
-            position={"absolute"}
-            src="/images/ifoneframe.png"
-            height={580}
-            zIndex={1}
-            alt="Picture of the author"
-          />
-          <SkeletonImage
-            setHovering={setHovering}
-            name={hovering}
-            height={20}
-            width={"100%"}
-          />
-        </Flex>
-        {renderFeatures()}
+    <Flex color="white" w="80%" alignSelf={"center"} justify={"center"}>
+      <Flex width={250} justifyContent={"center"}>
+        <Image
+          position={"absolute"}
+          src="https://d1icker9je2akj.cloudfront.net/ifoneframe.png"
+          height={580}
+          zIndex={1}
+          alt="Picture of the author"
+        />
+        <SkeletonImage
+          setHovering={setHovering}
+          name={hovering}
+          height={560}
+          width={250}
+        />
       </Flex>
+      {renderFeatures()}
     </Flex>
   );
 }
