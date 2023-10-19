@@ -14,7 +14,7 @@ function Layout({ children }: { children: any }) {
           name="google-site-verification"
           content="BdcSbbdl77EbnSO73TNDEkRqlOehHt5rPaegmW6vBKA"
         /> */}
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/favicon.ico" />
       </Head>
       <Flex
         direction={"column"}
