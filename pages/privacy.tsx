@@ -15,7 +15,7 @@ function PolicyTitle({ title }: { title: string }) {
 }
 function Privacy() {
   return (
-    <Flex color="white" w="100%" justifyContent={"center"}>
+    <Flex color="white" w="100%" justifyContent={"center"} fontWeight={300}>
       <Box alignSelf={"center"} w="70%" margin={5}>
         <Heading>Privacy Policy</Heading>
         <Text>Last updated: July 11, 2023</Text>

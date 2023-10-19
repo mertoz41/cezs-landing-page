@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Image, Flex, Box } from "@chakra-ui/react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -64,4 +64,4 @@ function SkeletonImage({
   );
 }
 
-export default SkeletonImage;
+export default React.memo(SkeletonImage);

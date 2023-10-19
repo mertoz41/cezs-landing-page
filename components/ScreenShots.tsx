@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Flex, Heading, Image } from "@chakra-ui/react";
 import SkeletonImage from "./SkeletonImage";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
 function ScreenShots() {
   const [hovering, setHovering] = useState<string>("second.png");
   const renderDescription = (fileName: string, description: string) => {
@@ -11,6 +9,7 @@ function ScreenShots() {
         cursor={"pointer"}
         fontWeight={"300"}
         fontSize={22}
+        marginY={{ base: 5, xl: 0 }}
         onMouseEnter={() => setHovering(fileName)}
         textDecoration={"underline"}
         textDecorationColor={hovering === fileName ? "#9370DB" : "transparent"}
@@ -23,6 +22,7 @@ function ScreenShots() {
     return (
       <Flex
         width={"auto"}
+        marginTop={{ base: 10, xl: 0 }}
         marginLeft={10}
         direction={"column"}
         justify={"space-around"}
@@ -47,8 +47,14 @@ function ScreenShots() {
     );
   };
   return (
-    <Flex color="white" w="80%" alignSelf={"center"} justify={"center"}>
-      <Flex width={250} justifyContent={"center"}>
+    <Flex
+      color="white"
+      w="80%"
+      alignSelf={"center"}
+      justify={"center"}
+      direction={{ base: "column", xl: "row" }}
+    >
+      <Flex width={250} justifyContent={"center"} alignSelf={"center"}>
         <Image
           position={"absolute"}
           src="https://d1icker9je2akj.cloudfront.net/ifoneframe.png"
