@@ -10,10 +10,17 @@ function Layout({ children }: { children: any }) {
       <Head>
         <title>Cezs Music</title>
         <meta name="description" content="Music app for instrumentalists" />
-        {/* <meta
+        <meta
+          name="keywords"
+          content="instruments, instrumentalists, music app, musicians app, instrumentalists app"
+        />
+
+        <meta
           name="google-site-verification"
-          content="BdcSbbdl77EbnSO73TNDEkRqlOehHt5rPaegmW6vBKA"
-        /> */}
+          content="gLMGEfKVXXt32AxoCzmGOn9dpPL61yhKQ0aoxg9z00M"
+        />
+        <meta charSet="utf-8"></meta>
+
         <link rel="icon" href="/images/favicon.ico" />
       </Head>
       <Flex
